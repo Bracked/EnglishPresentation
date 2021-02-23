@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .align-center {
+            align-items: center;
+        }
+
+        .justify-sb {
+            justify-content: space-between;
+        }
+
+        .flex * {
+            flex: 0 0 50%;
+        }
+
+
+        .max1 {
+            /* max-width: 100%; */
+            /* height: 400px; */
+            background-image: url(./Img/www.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 300px;
+        }
+
+        .page1 .flex {
+            margin-top: 100px;
+        }
+
+        .page1 li {
+            margin-right: 20px;
+            line-height: 1.6;
+
+        }
+
+        .rounded {
+            border-radius: 30px;
+        }
+
+
+        .page2 p,
+        .page3 p {
+            font-size: 14px !important;
+            margin-right: 30px;
+            line-height: 1.7;
+        }
+
+
+
+        .page2 .image {
+            background-image: url(./Img/Cerf.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 370px;
+        }
+
+        .page3 .image {
+            background-image: url(./Img/Bob-Kahn.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 370px;
+
+        }
+
+        .page4 p {
+            font-size: 19px;
+            line-height: 1.2;
+            flex: 1 0 70%;
+            margin-right: 80px;
+        }
+
+        .page4 .flex div img {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .page4 .big-img {
+            width: 100%;
+            height: 100%;
+            background-image: url(./Img/www-and-internet.webp);
+            background-size: contain;
+            background-repeat: no-repeat;
+            /* height: 370px; */
+            /* transform: translateX(-300px); */
+            /* margin: 0 -100px 0 -100px; */
+            margin-bottom: 20px;
+        }
+
+        .tt {
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+        .blue {
+            background-color: rgb(78, 100, 196);
+        }
+
+        .pink {
+            background-color: rgb(207, 85, 181);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 50px 130px;
+        }
+
+        .page5 .grid {
+            font-size: 19px;
+            padding: 20px;
+            color: #eee;
+        }
+
+        .page5 .grid .grid__cell {
+            border-bottom: 4px dotted white;
+            /* align-self: center; */
+            /* justify-self: center; */
+
+        }
+
+        .net .image1 {
+            background-image: url(./Img/Arpanet.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 70%;
+            height: 300px;
+            margin-right: 100px;
+        }
+
+        .net .image2 {
+            background-image: url(./Img/logo.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 30%;
+            height: 300px;
+
+        }
+
+        .page6 .award img {}
+
+        .page6 .flex .award__icon {
+            flex: 0 0 15%;
+        }
+
+        .award {
+            font-size: 17px;
+            line-height: 1.2;
+        }
+
+        .award p {
+            margin-bottom: 7px;
+        }
+
+
+        .award__image {
+            background-image: url(./Img/Young-Cerf.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 200px;
+            height: 240px;
+            margin-right: 20px;
+
+            position: relative;
+        }
+
+        .award__image::after {
+            content: 'Vint Cerf';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-style: 26px;
+            font-weight: 700;
+        }
+
+        .award__image2 {
+            background-image: url(./Img/Bob-Kahn-young.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 200px;
+            height: 240px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .award__image2::after {
+            content: 'Bob Kahn';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-style: 26px;
+            font-weight: 700;
+        }
+
+        .award__man.flex .award__image,
+        .award__man.flex .award__image2 {
+            flex: 0 0 40%;
+        }
+
+        .award__man.flex p {
+            flex: 0 0 60%;
+        }
+
+        .thanks {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            /* -webkit-text-fill-width: 10px; */
+        }
+
+        .thanks p {
+            max-width: 10ch;
+            line-height: 1;
+            text-align: center;
+            font-size: 102px;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: #000;
+            -webkit-text-fill-color: #fff;
+
+        }
+    </style>
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Shower Presentation Engine</h1>
+        <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <section class="slide page1">
+        <h2>Bob Kahn and Vint Cerf</h2>
+        <div class="flex align-center justify-sb">
+            <ol>
+                <li> TCP (Transmission Control Protocol)</li>
+                <li> IP (Internet Protocol)</li>
+            </ol>
+            <div class="max1 rounded"></div>
+
+        </div>
+    </section>
+    <section class="slide net">
+        <h2>ARPANET</h2>
+        <div class="flex align-center justify-sb">
+            <div class="image1"></div>
+            <div class="image2 "></div>
+        </div>
+    </section>
+
+    <section class="slide page2">
+        <h2>Vint Cerf Biography</h2>
+        <div class="flex align-center justify-sb">
+            <div class="content">
+                <p>Cerf was born June 23, 1943 in New Haven, Connecticut</p>
+                <p>After college, Cerf worked at IBM as engenier for two years.</p>
+                <p>His personal interests include fine wine, gourmet cooking and science fiction. Cerf and his wife,
+                    Sigrid, were married in 1966 and have two sons</p>
+                <p>Cerf has worked for Google as a vice president and Chief Internet Evangelist since October 2005. In
+                    this function he has become well known for his predictions on how technology will affect future
+                    society, encompassing such areas as artificial intelligence, environmentalism, the advent of IPv6
+                    and the transformation of the television industry and its delivery model.
+                </p>
+            </div>
+            <div class="image "></div>
+        </div>
+    </section>
+
+
+
+    <section class="slide page3">
+        <h2>Bob Kahn Biography</h2>
+        <div class="flex align-center justify-sb">
+            <div class="content">
+                <p>Kahn was born December 23, 1938 in New York</p>
+                <p> After receiving a B.E.E. degree in electrical engineering in 1960,
+                    Kahn went on to Princeton University where he earned a Master of Art in 1962 and Ph.D. in 1964, both
+                    in
+                    electrical engineering.</p>
+                <p> He first worked at Bolt Beranek and Newman Inc., then in 1972 joined
+                    the Information Processing Techniques Office (IPTO) within DARPA. </p>
+                <p> In the fall of 1972, he demonstrated the ARPANET by connecting 20 different computers at the
+                    International Computer Communication Conference</p>
+                <p>After he became director of IPTO, he started the United States government's billion dollar Strategic
+                    Computing Initiative, the largest computer research and development program ever undertaken by the
+                    U.S. federal government</p>
+            </div>
+            <div class="image "></div>
+    </section>
+
+    <section class="slide page4">
+        <h2>Tim Berners-Lee</h2>
+        <div class="flex align-center justify-sb">
+            <p>Tim Berners-Lee is the inventor of the World Wide Web and he created a new computer language called HTML
+                (Hypertext Markup Language) which most web pages are written in. The first web page was available on 6
+                August 1991.</p>
+            <div class=""><img src="./Img/html.png" alt=""></div>
+        </div>
+        <div class="big-img"></div>
+    </section>
+
+    <section class="slide page5">
+        <h2><span style="color:rgb(78, 100, 196);">Internet</span> vs <span style="color:rgb(207, 85, 181);">Word
+                Wide
+                Web</span></h2>
+
+        <div class="columns two">
+            <div class="grid blue rounded">
+                <div class="grid__cell tt">Internet</div>
+                <div class="grid__cell">A global system of interconnected computer networks that use the TCP/IP protocol
+                    to link devices worldwide</div>
+                <div class="grid__cell">A massive interconnection of coumputer networks around the world</div>
+                <div class="grid__cell">Uses Transmission Control Protocol / Internet Protocol</div>
+            </div>
+            <div class="grid pink rounded">
+                <div class="grid__cell tt">Word Wide Web</div>
+                <div class="grid__cell">Online content that is formatted in HTML and accesed via HTTP protocol</div>
+                <div class="grid__cell">Service provided by the internet</div>
+                <div class="grid__cell">Uses Hyper Text Transfer Protocol</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide page6">
+        <div class="flex align-center ">
+            <img class="award__icon" src="./Img/award.svg" width="90" height="90" alt="">
+            <h2>Awards</h2>
+        </div>
+        <p>In 2004, Kahn with Vint Cerf won the Turing Award for their work on TCP/IP</p>
+
+        <div class="award align-center flex">
+            <div class="award__man align-center flex">
+                <div class="award__image"></div>
+                <div class="award__content">
+                    <p>1997 IEEE Alexander Graham Bell Medal</p>
+                    <p>1998 Marconi Prize</p>
+                    <p>2010 Harold Pender Award</p>
+                    <p>2013 Queen Elizabeth Prize for Engineering</p>
+                </div>
+            </div>
+            <div class="award__man align-center flex">
+                <div class="award__image2"></div>
+                <div class="award__content">
+                    <p>1997 National Medal of Technology</p>
+                    <p>2001 Charles Stark Draper Prize</p>
+                    <p>2002 Prince of Asturias Award</p>
+                    <p>2003 Digital ID World award for the Digital Object Architecture </p>
+                    <p> 2008 Japan Prize</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="thanks slide">
+        <img class="cover" src="./Img/thanks.webp" alt="">
+        <p>Thanks for attention</p>
+    </section>
+
+
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+
+</html>
